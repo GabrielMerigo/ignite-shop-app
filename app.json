@@ -18,16 +18,48 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsT![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/8d79cfda-be45-4125-b809-866177d5dc71/12856f43-4d67-4872-8fb4-3c0516ede88f/Untitled.png)ablet": true,
+      "bundleIdentifier": "com.nexus.igniteshoesapp"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#000000"
-      }
+      },
+      "package": "com.nexus.igniteshoesapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "onesignal-expo-plugin",
+        {
+          "mode": "development"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "build": {
+          "experimental": {
+            "ios": {
+              "appExtensions": [
+                {
+                  "targetName": "OneSignalNotificationServiceExtension",
+                  "bundleIdentifier": "com.nexus.igniteshoesapp.OneSignalNotificationServiceExtension",
+                  "entitlements": {
+                    "com.apple.security.application-groups": [
+                      "group.com.nexus.igniteshoesapp.onesignal"
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "projectId": "06058aef-9719-4c37-8167-848c01aadf14"
+      }
     }
   }
 }
