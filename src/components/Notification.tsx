@@ -16,8 +16,6 @@ type AdditionalDataProps = {
 export function Notification({ data, onClose }: Props) {
   const { navigate } = useNavigation();
 
-  console.log(data);
-
   function handleOnPress() {
     const { route, product_id } = data.additionalData as AdditionalDataProps;
 

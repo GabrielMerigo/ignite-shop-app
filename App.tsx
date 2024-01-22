@@ -1,3 +1,4 @@
+import { OneSignal } from "react-native-onesignal";
 import { StatusBar } from "react-native";
 import { useEffect } from "react";
 import { NativeBaseProvider } from "native-base";
@@ -21,6 +22,12 @@ export default function App() {
 
   useEffect(() => {
     oneSignalInitialize()
+  }, [])
+
+  useEffect(() => {
+    OneSignal.Notifications.addEventListener('click', (res) => {
+      console.log(res);
+    })
   }, [])
 
   return (
