@@ -9,6 +9,20 @@ import { NotificationEventTypeMap } from 'react-native-onesignal/dist/models/Not
 
 import { AppRoutes } from './app.routes';
 
+const linking = {
+  prefixes: ['com.nexus.igniteshoesapp://', 'igniteshoesapp://'],
+  config: {
+    screens: {
+      details: {
+        path: 'details/:productId',
+        parse: {
+          productId: (productId: string) => productId
+        }
+      }
+    }
+  }
+};
+
 export function Routes() {
   const [notification, setNotification] = useState<OSNotification | null>();
   const { colors } = useTheme();
@@ -27,7 +41,7 @@ export function Routes() {
   }, [])
 
   return (
-    <NavigationContainer theme={theme}>
+    <NavigationContainer theme={theme} linking={linking}>
       <AppRoutes />
 
       {notification?.title && <Notification data={notification} onClose={() => setNotification(null)} />}
