@@ -25,9 +25,7 @@ export default function App() {
   }, [])
 
   useEffect(() => {
-    OneSignal.Notifications.addEventListener('click', (res) => {
-      console.log(res);
-    })
+    OneSignal.Notifications.addEventListener('click', (res) => {})
   }, [])
 
   return (
